@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f7a4d">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="المقاضي">
+  <title>مقاضي البيت</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1 class="title">مقاضي البيت</h1>
+
+    <form id="add-form" class="add" autocomplete="off">
+      <textarea id="paste" rows="2" dir="auto" aria-label="رسالة الواتساب" placeholder="الصق رسالة الواتساب هنا"></textarea>
+      <button id="add-btn" class="btn primary" type="submit">أضف</button>
+    </form>
+
+    <p id="storage-warn" class="warn-line" hidden>⚠️ ما قدرت أحفظ على الجهاز. التغييرات ممكن تضيع لو قفلت الصفحة.</p>
+
+    <section id="unknowns" class="unknowns" aria-live="polite" hidden></section>
+
+    <div id="list"></div>
+    <p id="empty" class="empty">القائمة فاضية. الصق رسالة الواتساب فوق واضغط «أضف».</p>
+
+    <button id="new-trip" class="btn block trip" type="button" hidden>مشوار جديد</button>
+
+    <details class="fold">
+      <summary>الرسائل الأصلية <span id="messages-count">(0)</span></summary>
+      <div class="fold-body" id="messages-body"></div>
+    </details>
+
+    <details class="fold">
+      <summary>ترتيب المحلات والأقسام</summary>
+      <div class="fold-body" id="order-body"></div>
+    </details>
+
+    <details class="fold">
+      <summary>اللي تعلّمه البرنامج <span id="learned-count"></span></summary>
+      <div class="fold-body" id="learned-body"></div>
+    </details>
+
+    <details class="fold">
+      <summary>تعليمات التثبيت</summary>
+      <div class="fold-body">
+        <p>ثبّت التطبيق على الشاشة الرئيسية عشان يشتغل بدون نت وما تنمسح بياناته.</p>
+        <h3 class="sub">آيفون</h3>
+        <ol>
+          <li>افتح الصفحة في Safari.</li>
+          <li>اضغط زر «مشاركة».</li>
+          <li>اختر «إضافة إلى الشاشة الرئيسية».</li>
+        </ol>
+        <h3 class="sub">أندرويد</h3>
+        <ol>
+          <li>افتح الصفحة في Chrome.</li>
+          <li>اضغط القائمة (الثلاث نقاط).</li>
+          <li>اختر «تثبيت التطبيق».</li>
+        </ol>
+      </div>
+    </details>
+  </main>
+
+  <div id="backdrop" hidden>
+    <div id="sheet" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <div id="undo" role="status" hidden>
+    <span id="undo-text"></span>
+    <button id="undo-btn" type="button">تراجع</button>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
